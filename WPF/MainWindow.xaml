@@ -1,0 +1,62 @@
+﻿<Window x:Class="SfDataGridDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:SfDataGridDemo"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        Title="SfDataGrid Demo"  WindowStartupLocation="CenterScreen"
+        Icon="App.ico" Width="1024" Height="710">
+    <Window.DataContext>
+        <local:UserInfoViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <Style TargetType="syncfusion:GridHeaderCellControl" >
+            <Setter Property="Background" Value="LightBlue"/>
+            <Setter Property="Foreground" Value="Blue"/>
+        </Style>
+        <Style TargetType="syncfusion:GridCell">
+            <Setter Property="Background" Value="Cyan"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <syncfusion:SfDataGrid x:Name="sfGrid"
+                                   Grid.Row="1"
+                                   ColumnSizer="Star"
+                                   AllowEditing="True"
+                                   AutoGenerateColumns="False"
+                                   GridValidationMode="InView"
+                                   ItemsSource="{Binding UserDetails}"
+                                   ShowRowHeader="True">
+
+            <syncfusion:SfDataGrid.Columns>
+                <syncfusion:GridTextColumn HeaderText="User ID" MappingName="UserId" AllowEditing="False" />
+                <syncfusion:GridTextColumn MappingName="Name" />
+                <syncfusion:GridDateTimeColumn Width="120"
+                                               MappingName="DateofBirth"
+                                               TextAlignment="Right" AllowEditing="False"/>
+                <syncfusion:GridTextColumn HeaderText="Contact No" MappingName="ContactNo" />
+                <syncfusion:GridNumericColumn Width="100" MappingName="Salary" />
+            </syncfusion:SfDataGrid.Columns>
+        </syncfusion:SfDataGrid>
+        
+        <StackPanel Grid.Column="1">
+            <TextBlock Margin="5"
+                       FontSize="12"
+                       FontWeight="Bold"
+                       Text="Export DataGrid To Excel" />
+
+            <Button Margin="5" 
+                    Command="local:Commands.ExportToExcel"
+                    CommandTarget="{Binding ElementName=sfGrid}"
+                    Content="Export to Excel" />
+        </StackPanel>
+
+    </Grid>
+</Window>
