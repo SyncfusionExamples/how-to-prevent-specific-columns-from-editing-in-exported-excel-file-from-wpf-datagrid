@@ -65,5 +65,8 @@ private static void OnExecuteExportToExcel(object sender, ExecutedRoutedEventArg
     }
 }
 ```
+
+KB article - [How to prevent specific columns from editing in exported excel file from WPF DataGrid (SfDataGrid)?](https://www.syncfusion.com/kb/11904/how-to-prevent-specific-columns-from-editing-in-exported-excel-file-from-wpf-datagrid)
+
 ## Requirements to run the demo
  Visual Studio 2015 and above versions
