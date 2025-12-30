@@ -1,6 +1,6 @@
 # How to Prevent Specific Columns from Editing in Exported Excel File from WPF DataGrid?
 
-This sample show cases how to prevent the specific columns from editing in exported excel file from [WPF DataGrid](https://www.syncfusion.com/wpf-controls/datagrid) (SfDataGrid)?
+This sample show cases how to prevent the specific columns from editing in exported excel file from [WPF DataGrid](https://www.syncfusion.com/wpf-controls/datagrid) (SfDataGrid).
 
 You can prevent editing of some columns in `DataGrid`. You can get the same behavior in exported excel file by protecting the worksheet and set the `Locked` property to false if you want to edit the columns.
 
